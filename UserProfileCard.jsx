@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function userProfileCard({ user }) {
+function UserProfileCard({ user }) {
   const [messageCount, setMessageCount] = useState(0);
 
   function handleSendMessage() {
@@ -12,8 +12,9 @@ function userProfileCard({ user }) {
   }
 
   return (
-    <div class="profile-card">
-      <img src={user.avatarUrl}>
+    <>
+    <div> class="profile-card"
+      <img src={user.avatarUrl}/>
 
       <h2>{user.name}</h2>
 
@@ -27,21 +28,26 @@ function userProfileCard({ user }) {
         ))}
       </ul>
 
-      <div style="color: blue; font-weight: bold;">
+      <div style="olor: blue; font-weight: bold;">
         Messages sent: {messageCount}
       </div>
 
-      {if (user.isOnline) {
+      if (user.isOnline) 
+      {
         <span>🟢 Online</span>
-      } else {
+      } 
+      else 
+        {
         <span>⚪ Offline</span>
-      }}
+        }
+      
 
       <button onClick={handleSendMessage()}>Send Message</button>
       <button onClick={handleReset()}>Reset</button>
     </div>
     <p className="footer">Card last updated: {user.lastUpdated}</p>
+    </>
   );
 }
 
-export default userProfileCard;
+export default UserProfileCard;
